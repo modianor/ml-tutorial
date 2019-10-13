@@ -11,15 +11,10 @@ datas: Datasets = input_data.read_data_sets(train_dir='./MNIST_DATA', one_hot=Tr
 train_data: DataSet = datas.train
 test_data: DataSet = datas.test
 
-print(train_data.num_examples)
-print(test_data.num_examples)
-
 classes = 10
-min_batch = 300
-epoch = 3
+min_batch, epoch, lr = 300, 3, 0.003
 h1_layer, h2_layer, h3_layer = 400, 200, 100
 width, height, channels = 28, 28, 1
-lr = 0.003
 batch_num = int(train_data.num_examples / min_batch)
 
 X = tf.placeholder(dtype=tf.float32, shape=[None, width, height, channels], name='input_X')
